@@ -13,7 +13,8 @@ const Header = () => {
       <Container>
         <Navbar.Brand as={Link} to="/">Ecommerce Cart</Navbar.Brand>
         <Nav className="ms-auto">
-          <Nav.Link as={Link} to="/cart" className="position-relative">
+    
+          <Nav.Link className="position-relative">
             <FaShoppingCart size={22} />
             {totalItems > 0 && (
               <Badge 

@@ -32,29 +32,21 @@ const Product = () => {
                
                   <Card.Text className="text-start">
                     <p className="m-0">{product.title.substring(0, 20)}</p>
-                    <p className="m-0">Description: {product.description.substring(0, 40)}</p>
+                    {/* <p className="m-0">Description: {product.description.substring(0, 40)}</p> */}
                     <p className="m-0">Price: ${product.price}</p>
                   </Card.Text>
 
+                  {quantity > 0 ? (
+                    <div className="d-flex justify-content-center align-items-center">
+                      <Button variant="secondary" size="sm" onClick={() => updateCart(product, quantity - 1)}>-</Button>
+                      <span className="mx-2">{quantity}</span>
+                      <Button variant="secondary" size="sm" onClick={() => updateCart(product, quantity + 1)}>+</Button>
+                    </div>
+                  ) : (
+                    <Button className="addCart" onClick={() => updateCart(product, 1)}>Add to Cart</Button>
+                  )}
 
 
-                  <div className="d-flex justify-content-center align-items-center">
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      onClick={() => updateCart(product, quantity - 1)}
-                    >
-                      -
-                    </Button>
-                    <span className="mx-2">{quantity}</span>
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      onClick={() => updateCart(product, quantity + 1)}
-                    >
-                      +
-                    </Button>
-                  </div>
                 </Card.Body>
               </Card>
             </Col>
